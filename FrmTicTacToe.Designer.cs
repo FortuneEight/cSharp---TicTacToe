@@ -34,9 +34,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 295);
+            this.ClientSize = new System.Drawing.Size(301, 29);
             this.Name = "FrmTicTacToe";
-            this.Text = "Tic Tac Toe - C# - by Miguel";
+            this.Load += new System.EventHandler(this.FrmTicTacToe_Load);
             this.ResumeLayout(false);
 
         }
