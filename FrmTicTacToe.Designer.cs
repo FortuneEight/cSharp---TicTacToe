@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 29);
+            this.ClientSize = new System.Drawing.Size(372, 335);
             this.Name = "FrmTicTacToe";
             this.Load += new System.EventHandler(this.FrmTicTacToe_Load);
             this.ResumeLayout(false);
