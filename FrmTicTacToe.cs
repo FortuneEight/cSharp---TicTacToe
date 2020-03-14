@@ -86,20 +86,20 @@ namespace cSharp___TicTacToe
             string fDiag;
             string bDiag;
 
-            bDiag = btnRC[0, 0].Text + btnRC[1, 1].Text + btnRC[2, 2].Text;
-            if(bDiag == "XXX" | bDiag == "OOO")  return true;
-        
-            fDiag = btnRC[0, 2].Text + btnRC[1, 1].Text + btnRC[2, 0].Text;
-            if (fDiag == "XXX" | fDiag == "OOO") return true;
-
             for (int i = 0; i <= 2; i++)
             {
-                row[i] = btnRC[i, 0].Text + btnRC[i, 1].Text + btnRC[i, 2];
+                row[i] = btnRC[i, 0].Text + btnRC[i, 1].Text + btnRC[i, 2].Text;
                 if (row[i] == "XXX" | row[i] == "OOO") return true;
 
-                col[i] = btnRC[0, i].Text + btnRC[1, i].Text + btnRC[2, i];
+                col[i] = btnRC[0, i].Text + btnRC[1, i].Text + btnRC[2, i].Text;
                 if (col[i] == "XXX" | col[i] == "OOO") return true;
             }
+
+            bDiag = btnRC[0, 0].Text + btnRC[1, 1].Text + btnRC[2, 2].Text;
+            if (bDiag == "XXX" | bDiag == "OOO") return true;
+
+            fDiag = btnRC[0, 2].Text + btnRC[1, 1].Text + btnRC[2, 0].Text;
+            if (fDiag == "XXX" | fDiag == "OOO") return true;
 
             return false;
         }
