@@ -51,7 +51,7 @@ namespace cSharp___TicTacToe
                         FlatStyle = FlatStyle.Flat,
                         Tag = "",
                     };
-                    PnlTicTacToe.Controls.Add(btnRC[r,c]);
+                    PnlTicTacToe.Controls.Add(btnRC[r, c]);
                     btnRC[r, c].Click += BtnTicTacToe_Click;
                 }
             }
@@ -69,13 +69,49 @@ namespace cSharp___TicTacToe
             if (HasGameBeenWon())
             {
                 MessageBox.Show($"Player {player} has won!!!");
-                Application.Exit();
+                ClearBoardForAnotherGame();
+            }
+            if (IsGameTied())
+            {
+                MessageBox.Show("TIE!");
+                ClearBoardForAnotherGame();
+            }
+         
+
+            TicTacToeAI();
+          
+        }
+
+        private void TicTacToeAI()
+        {
+            player = "O";
+
+
+
+
+            foreach (Button btn in btnRC)
+            {
+                if (btn.Text == "")
+                {
+                    btn.Text = "O";
+                    break;
+                } 
             }
 
 
-            player = (player == "X") ? "O" : "X";
-            LblCurrentPlayer.Text = $"Current Player - {player}";
+            if (HasGameBeenWon())
+            {
+                MessageBox.Show($"Player {player} has won!!!");
+                ClearBoardForAnotherGame();
+            }
+            if (IsGameTied())
+            {
+                MessageBox.Show("TIE!");
+                ClearBoardForAnotherGame();
+            }
+            player = "X";
 
+            LblCurrentPlayer.Text = $"Current Player - {player}";
 
         }
 
@@ -104,7 +140,39 @@ namespace cSharp___TicTacToe
             return false;
         }
 
+        private static bool IsGameTied()
+        {
+            foreach (Button btn in btnRC)
+            {
+                if (btn.Text == "")
+                {
+                    return false;
+                }
+            }
 
+            return true;
+        }
+
+
+        private void ClearBoardForAnotherGame()
+        {
+            DialogResult yn = MessageBox.Show("Play another game?", "Tic Tac Toe Game Ended", MessageBoxButtons.YesNo);
+
+            if (yn == DialogResult.Yes)
+            {
+                foreach (Button btn in btnRC)
+                {
+                    btn.Text = "";
+                }
+                return;
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
+
+      
         private void CustomizeForm()
         {
             int clientWidth = 400;
@@ -155,3 +223,11 @@ namespace cSharp___TicTacToe
         }
     }
 }
+
+/* Easy TicTacToe AI (Rule Based)
+1: Get TicTacToe
+2: Block TicTacToe 
+3: Center If availible
+4: Go to Corner Space
+5: Pick Open Space
+*/
